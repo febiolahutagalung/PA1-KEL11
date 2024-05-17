@@ -1,7 +1,7 @@
 @extends('layout.admin')
 
 @section('content')
-    
+
 <div class="container">
     <h1 class="my-4">Tambah Data Donasi</h1>
     <form action="/admin/tambahdonasi" method="POST">
@@ -17,21 +17,21 @@
         <div class="mb-3">
             <label for="jenis" class="form-label">Jenis Donasi</label>
             <select class="form-control" id="jenis" name="jenis">
-                <option value="Pembangunan">Pembangunan</option>
-                <option value="Dana Pensiun">Dana Pensiun</option>
-                <option value="Peduli Masyarakat">Peduli Masyarakat</option>
-                <option value="Lansia">Lansia</option>
-                <option value="Sekolah Minggu">Sekolah Minggu</option>
-                <option value="Remaja / Naposo">Remaja/Naposobulung</option>
-                <option value="Lainnya">Lainnya</option>
+                <option value="pembangunan">Pembangunan</option>
+                <option value="danapensiun">Dana Pensiun</option>
+                <option value="pedulimasyarakat">Peduli Masyarakat</option>
+                <option value="lansia">Lansia</option>
+                <option value="sekolahminggu">Sekolah Minggu</option>
+                <option value="remajanaposo">Remaja/Naposobulung</option>
+                <option value="lainnya">Lainnya</option>
                 <!-- Tambahkan opsi lainnya sesuai kebutuhan -->
             </select>
-        </div>     
+        </div>
         <div class="mb-3">
             <label for="jumlahdonasi" class="form-label">Jumlah Donasi</label>
             <input type="number" class="form-control" id="jumlahdonasi" name="jumlahdonasi">
         </div>
         <button type="submit" class="btn btn-primary">Simpan</button>
     </form>
-</div>      
+</div>
 @endsection

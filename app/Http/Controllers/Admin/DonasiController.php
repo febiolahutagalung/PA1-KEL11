@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Models\Donasi;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use App\Rules\CaseInsensitiveIn;
 
 class DonasiController extends Controller
 {
@@ -27,96 +30,108 @@ class DonasiController extends Controller
     public function create()
     {
         return view('donasi.tambahdonasi');
- 
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-{
-    $request->validate([
-        'namapemberi' => 'required',
-        'tanggal' => 'required',
-        'jenis' => 'required|in:pembangunan,danapensiun,pedulimasyarakat,lansia,sekolahminggu,remajanaposo,lainnya',
-        'jumlahdonasi' => 'required',
-    ]);
+    {
+        try {
+            Log::info('Store method called with data: ', $request->all());
 
-    $newDonasi = new Donasi;
-    $newDonasi->namapemberi = $request->namapemberi;
-    $newDonasi->tanggal = $request->tanggal;
-    $newDonasi->jenis = $request->jenis;
-    $newDonasi->jumlahdonasi = $request->jumlahdonasi;
-    $newDonasi->save();
-    
-    return redirect("/admin/donasi")->with('status', 'Donasi Berhasil ditambahkan');
-}
+            $request->validate([
+                'namapemberi' => 'required',
+                'tanggal' => 'required|date',
+                'jenis' => ['required', new CaseInsensitiveIn([
+                    'pembangunan',
+                    'danapensiun',
+                    'pedulimasyarakat',
+                    'lansia',
+                    'sekolahminggu',
+                    'remajanaposo',
+                    'lainnya',
+                    // Add other 'jenis' types here
+                ])],
+                'jumlahdonasi' => 'required|numeric',
+            ]);
+
+            $newDonasi = new Donasi;
+            $newDonasi->namapemberi = $request->namapemberi;
+            $newDonasi->tanggal = $request->tanggal;
+            $newDonasi->jenis = $request->jenis;
+            $newDonasi->jumlahdonasi = $request->jumlahdonasi;
+            $newDonasi->save();
+
+            return redirect('/admin/donasi')->with('status', 'Donasi Berhasil ditambahkan');
+        } catch (\Exception $e) {
+            Log::error('Error in store method: ', ['error' => $e->getMessage()]);
+            return redirect()->back()->withErrors(['error' => 'Gagal menambahkan donasi. Silakan coba lagi.']);
+        }
+    }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        
+        // Implement the logic if needed or remove this method if not used
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $donasiId
      * @return \Illuminate\Http\Response
      */
     public function edit($donasiId)
     {
-        $donasi = Donasi::where('id', $donasiId)->first();
-        return view('donasi.editdonasi', ['donasi'=>$donasi]);
+        $donasi = Donasi::findOrFail($donasiId);
+        return view('donasi.editdonasi', ['donasi' => $donasi]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $donasiId
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $donasiId)
     {
         $request->validate([
             'namapemberi' => 'required',
-            'tanggal' => 'required',
+            'tanggal' => 'required|date',
             'jenis' => 'required',
-            'jumlahdonasi' => 'required',
-            
-            
+            'jumlahdonasi' => 'required|numeric',
         ]);
 
-        Donasi::where('id', $donasiId)
-            ->update([
-                'namapemberi'=>$request->namapemberi,
-                'tanggal'=>$request->tanggal,
-                'jenis'=>$request->jenis,
-                'jumlahdonasi'=>$request->jumlahdonasi,                
-                
-            ]);
-        return redirect('/admin/donasi')->with('status','jadwalibadah dengan id'.$donasiId.'berhasil di ubah');
+        Donasi::where('id', $donasiId)->update([
+            'namapemberi' => $request->namapemberi,
+            'tanggal' => $request->tanggal,
+            'jenis' => $request->jenis,
+            'jumlahdonasi' => $request->jumlahdonasi,
+        ]);
+
+        return redirect('/admin/donasi')->with('status', 'Donasi dengan ID ' . $donasiId . ' berhasil diubah');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $donasiId
      * @return \Illuminate\Http\Response
      */
     public function destroy($donasiId)
     {
-        Donasi::where('id', $donasiId)->delete();
+        Donasi::destroy($donasiId);
 
-        return redirect('/admin/donasi')->with('status', 'donasi dengan id ' .$donasiId. ' berhasil dihapus');
+        return redirect('/admin/donasi')->with('status', 'Donasi dengan ID ' . $donasiId . ' berhasil dihapus');
     }
 }
