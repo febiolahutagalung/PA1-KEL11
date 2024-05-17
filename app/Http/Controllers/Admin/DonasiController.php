@@ -37,24 +37,23 @@ class DonasiController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $request->validate([
-            'namapemberi' => 'required',
-            'tanggal' => 'required',
-            'jenis' => 'required',
-            'jumlahdonasi' => 'required',
-            
-        ]);
+{
+    $request->validate([
+        'namapemberi' => 'required',
+        'tanggal' => 'required',
+        'jenis' => 'required|in:pembangunan,danapensiun,pedulimasyarakat,lansia,sekolahminggu,remajanaposo,lainnya',
+        'jumlahdonasi' => 'required',
+    ]);
 
-        $newDonasi = new Donasi;
-        $newDonasi->namapemberi = $request->namapemberi;
-        $newDonasi->tanggal = $request->tanggal;
-        $newDonasi->jenis = $request->jenis;
-        $newDonasi->jumlahdonasi = $request->jumlahdonasi;
-        
-        $newDonasi->save();
-        return redirect("/admin/donasi")->with('status', 'Donasi Berhasil ditambahkan');
-    }
+    $newDonasi = new Donasi;
+    $newDonasi->namapemberi = $request->namapemberi;
+    $newDonasi->tanggal = $request->tanggal;
+    $newDonasi->jenis = $request->jenis;
+    $newDonasi->jumlahdonasi = $request->jumlahdonasi;
+    $newDonasi->save();
+    
+    return redirect("/admin/donasi")->with('status', 'Donasi Berhasil ditambahkan');
+}
 
     /**
      * Display the specified resource.
@@ -99,7 +98,7 @@ class DonasiController extends Controller
 
         Donasi::where('id', $donasiId)
             ->update([
-                'namapemberi'=>$request->namapeberi,
+                'namapemberi'=>$request->namapemberi,
                 'tanggal'=>$request->tanggal,
                 'jenis'=>$request->jenis,
                 'jumlahdonasi'=>$request->jumlahdonasi,                

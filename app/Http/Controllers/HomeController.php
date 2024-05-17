@@ -41,9 +41,7 @@ class HomeController extends Controller
 
     public function donasi()
     {
-        $JumlahDonasi = Donasi::sum('jumlahdonasi');
-        $allDonasi = Donasi::all();
-        return view('tampilan.donasi', compact('allDonasi', 'JumlahDonasi'));
+        return view('tampilan.donasi');
     }
 
 }

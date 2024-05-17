@@ -14,6 +14,7 @@ use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\GaleritampilanController;
 use App\Http\Controllers\JadwalibadahController;
 use App\Http\Controllers\JadwalibadahtampilanController;
+use App\Http\Controllers\DonasitampilanController;
 use App\Http\Controllers\DonasiController;
 
 
@@ -50,11 +51,6 @@ Route::get('/lokasi', function () {
         "title"=> "Lokasi"
     ]);
 });
-Route::get('/daftar-sidi', function(){
-    return view('layanan.sidi',[
-        'title'=> 'sidi'
-    ]);
-});
 // Route::get('/galeri', function(){
 //     return view('tampilan.galeri',[
 //         'title'=> 'wisma'
@@ -66,7 +62,7 @@ Route::get('/warta', 'App\Http\Controllers\WartatampilanController@index');
 Route::get('/galeri', 'App\Http\Controllers\GaleritampilanController@index');
 Route::get('/datajemaat', 'App\Http\Controllers\DatajemaattampilanController@index');
 Route::get('/jadwalibadah', 'App\Http\Controllers\JadwalibadahtampilanController@index');
-Route::get('/donasi', 'App\Http\Controllers\HomeController@donasi');
+Route::get('/donasi', 'App\Http\Controllers\DonasitampilanController@index');
 
 
 

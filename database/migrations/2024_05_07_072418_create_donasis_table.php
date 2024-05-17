@@ -17,7 +17,7 @@ class CreateDonasisTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('tanggal');
-            $table->enum('jenis',['pembangunan', 'danapensiun', 'pedulimasyarakat','lansia', 'sekolahminggu', 'remajanaposo', 'lainnya']);
+            $table->enum('jenis', ['pembangunan', 'danapensiun', 'pedulimasyarakat','lansia', 'sekolahminggu', 'remajanaposo', 'lainnya']);
             $table->string('namapemberi');
             $table->integer('jumlahdonasi');
         });
@@ -25,7 +25,7 @@ class CreateDonasisTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
+     * 
      * @return void
      */
     public function down()
