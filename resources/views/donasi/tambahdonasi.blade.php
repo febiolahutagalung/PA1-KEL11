@@ -17,13 +17,13 @@
         <div class="mb-3">
             <label for="jenis" class="form-label">Jenis Donasi</label>
             <select class="form-control" id="jenis" name="jenis">
-                <option value="pembangunan">Pembangunan</option>
-                <option value="danapensiun">Dana Pensiun</option>
-                <option value="pedulimasyarakat">Peduli Masyarakat</option>
-                <option value="lansia">Lansia</option>
-                <option value="sekolahminggu">Sekolah Minggu</option>
-                <option value="remajanaposo">Remaja/Naposobulung</option>
-                <option value="lainnya">Lainnya</option>
+                <option value="Pembangunan">Pembangunan</option>
+                <option value="DanaPensiun">Dana Pensiun</option>
+                <option value="PeduliMasyarakat">Peduli Masyarakat</option>
+                <option value="Lansia">Lansia</option>
+                <option value="SekolahMinggu">Sekolah Minggu</option>
+                <option value="RemajaNaposo">Remaja/Naposobulung</option>
+                <option value="Lainnya">Lainnya</option>
                 <!-- Tambahkan opsi lainnya sesuai kebutuhan -->
             </select>
         </div>
