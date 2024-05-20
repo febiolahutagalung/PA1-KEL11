@@ -201,44 +201,44 @@
 
     <!-- Navbar & Hero End -->
 
-{{--    <!-- Ayat Harian Start -->--}}
-{{--    <div class="container-fluid service py-5">--}}
-{{--        <div class="container py-5">--}}
-{{--            <div class="mx-auto text-center mb-5" style="max-width: 900px;">--}}
-{{--                <h5 class="section-title px-3">Ayat Harian</h5>--}}
-{{--                <h1 class="mb-0" id="ayat">Mohon tunggu sebentar...</h1>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
+    <!-- Ayat Harian Start -->
+    <div class="container-fluid service py-5">
+        <div class="container py-5">
+            <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+                <h5 class="section-title px-3">Ayat Harian</h5>
+                <h1 class="mb-0" id="ayat">Mohon tunggu sebentar...</h1>
+            </div>
+        </div>
+    </div>
 
-{{--    <script>--}}
-{{--        document.addEventListener("DOMContentLoaded", function() {--}}
-{{--            fetch('https://labs.bible.org/api/?passage=votd&type=json')--}}
-{{--                .then(response => {--}}
-{{--                    if (!response.ok) {--}}
-{{--                        throw new Error('Gagal mengambil data: ' + response.status);--}}
-{{--                    }--}}
-{{--                    return response.json();--}}
-{{--                })--}}
-{{--                .then(data => {--}}
-{{--                    if (data.length > 0) {--}}
-{{--                        const verseText = data[0].text;--}}
-{{--                        document.getElementById('ayat').textContent = verseText;--}}
-{{--                    } else {--}}
-{{--                        throw new Error('Data tidak ditemukan.');--}}
-{{--                    }--}}
-{{--                })--}}
-{{--                .catch(error => {--}}
-{{--                    console.error(error);--}}
-{{--                    if (error.message === 'Failed to fetch') {--}}
-{{--                        document.getElementById('ayat').textContent = 'Gagal memuat ayat harian. Terjadi masalah dengan koneksi internet. Silakan coba lagi nanti.';--}}
-{{--                    } else {--}}
-{{--                        document.getElementById('ayat').textContent = 'Gagal memuat ayat harian. ' + error.message + ' Silakan coba lagi nanti.';--}}
-{{--                    }--}}
-{{--                });--}}
-{{--        });--}}
-{{--    </script>--}}
-{{--    <!-- Ayat Harian End -->--}}
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('https://labs.bible.org/api/?passage=votd&type=json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Gagal mengambil data: ' + response.status);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.length > 0) {
+                        const verseText = data[0].text;
+                        document.getElementById('ayat').textContent = verseText;
+                    } else {
+                        throw new Error('Data tidak ditemukan.');
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                    if (error.message === 'Failed to fetch') {
+                        document.getElementById('ayat').textContent = 'Gagal memuat ayat harian. Terjadi masalah dengan koneksi internet. Silakan coba lagi nanti.';
+                    } else {
+                        document.getElementById('ayat').textContent = 'Gagal memuat ayat harian. ' + error.message + ' Silakan coba lagi nanti.';
+                    }
+                });
+        });
+    </script>
+    <!-- Ayat Harian End -->
 
     <!-- About Start -->
     <div class="container-fluid about py-5 d-flex justify-content-center align-items-center" style="min-height: 100vh;">
