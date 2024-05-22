@@ -22,7 +22,7 @@
   <div class="login-box">
     <div class="card card-outline card-primary">
       <div class="card-header text-center">
-        <a href="warta.dashboard" class="h1">Login</a>
+        <a href="warta.dashboard" class="h1">HKBP Sabungan Siborongborong</a>
       </div>
       <div class="card-body">
         <p class="login-box-msg">Horas Di hita Saluhutna</p>

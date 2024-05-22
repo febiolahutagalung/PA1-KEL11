@@ -89,7 +89,7 @@
            <img src="{{ asset('assets/img/pebi.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Pebiiii</a>
+          <a href="#" class="d-block">Admin Pengurus</a>
         </div>
       </div>
 
@@ -160,7 +160,7 @@
           </li>
           <li class="nav-item">
             <a href="/admin/jadwalibadah" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
+              <i class="nav-icon fas fa-newspaper"></i>
               <p>
                 Jadwal Ibadah
               </p>
