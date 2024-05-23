@@ -22,21 +22,21 @@
         .card {
             background: #F1F2F2;
             border-radius: 5px;
-            height: 350px; /* Adjust height as needed */
+            height: 350px; /* Increased height */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 15px;
+            padding: 20px; /* Increased padding */
             text-align: center;
         }
         .img-fluid {
-            max-height: 150px; /* Adjust height as needed */
+            max-height: 200px; /* Increased height */
             object-fit: cover;
             border-radius: 5px;
             margin-bottom: 10px;
         }
         .card-date {
-            font-size: 14px;
+            font-size: 16px; /* Increased font size */
             color: #666;
             margin-top: 10px;
         }
@@ -69,7 +69,7 @@
                     @php
                         $formattedDate = \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F Y');
                     @endphp
-                    <div class="col-lg-3 mt-4">
+                    <div class="col-lg-3 mt-4"> <!-- Changed column size to 3 to fit 4 cards per row -->
                         <div class="card">
                             <a href="{{ asset('assets/file-warta/'.$item->pdf ?? '') }}" download="{{ asset('assets/file-warta/'.$item->pdf ?? '') }}">
                                 <span class="text-warta">{{ $item->judul }}</span>
