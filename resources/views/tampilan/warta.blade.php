@@ -8,7 +8,9 @@
     <style>
         .text-warta {
             font-weight: 700;
-            color: #F7941E;
+            color: #00008B; /* Warna biru tua */
+            font-family: Arial, sans-serif; /* Mengubah jenis font menjadi Arial */
+            font-size: 1.5rem; /* Ukuran font ditingkatkan, namun tidak terlalu besar */
             display: block;
             white-space: nowrap;
             overflow: hidden;
@@ -17,26 +19,31 @@
             margin-bottom: 10px;
         }
         .text-warta:hover {
-            color: #FFA343;
+            color: #0000CD; /* Warna hover biru lebih cerah */
         }
         .card {
-            background: #F1F2F2;
-            border-radius: 5px;
-            height: 350px; /* Increased height */
+            background: linear-gradient(145deg, #e6e6e6, #ffffff); /* Background gradient */
+            border-radius: 15px; /* Border radius ditingkatkan */
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1); /* Box shadow untuk efek bayangan */
+            height: 350px; /* Tinggi ditingkatkan */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 20px; /* Increased padding */
+            padding: 20px; /* Padding ditingkatkan */
             text-align: center;
+            transition: transform 0.3s ease; /* Efek transisi untuk hover */
+        }
+        .card:hover {
+            transform: scale(1.05); /* Efek zoom pada hover */
         }
         .img-fluid {
-            max-height: 200px; /* Increased height */
+            max-height: 200px; /* Tinggi ditingkatkan */
             object-fit: cover;
-            border-radius: 5px;
+            border-radius: 10px; /* Border radius pada gambar */
             margin-bottom: 10px;
         }
         .card-date {
-            font-size: 16px; /* Increased font size */
+            font-size: 16px; /* Ukuran font ditingkatkan */
             color: #666;
             margin-top: 10px;
         }
@@ -69,7 +76,7 @@
                     @php
                         $formattedDate = \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F Y');
                     @endphp
-                    <div class="col-lg-3 mt-4"> <!-- Changed column size to 3 to fit 4 cards per row -->
+                    <div class="col-lg-3 mt-4"> <!-- Ubah ukuran kolom menjadi 3 agar muat 4 kartu per baris -->
                         <div class="card">
                             <a href="{{ asset('assets/file-warta/'.$item->pdf ?? '') }}" download="{{ asset('assets/file-warta/'.$item->pdf ?? '') }}">
                                 <span class="text-warta">{{ $item->judul }}</span>
