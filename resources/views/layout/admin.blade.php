@@ -32,6 +32,16 @@
             width: 40px; /* adjust as needed */
             height: 40px; /* adjust as needed */
         }
+        body{
+          background-color: #FFFAE6;
+          color: black
+        }
+
+        .sidebar{
+          background-color: #002379;
+          color: black
+
+        }
     </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -43,7 +53,7 @@
   </div>
 
   <!-- Navbar -->
-<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<nav class="main-header navbar navbar-expand navbar-white navbar-light" style="background-color:#002379">
   <!-- Left navbar links -->
   <ul class="navbar-nav">
     <li class="nav-item">
@@ -52,11 +62,11 @@
   </ul>
 
   <!-- Right navbar links -->
-  <ul class="navbar-nav ml-auto">
+  <ul class="navbar-nav ml-auto bg-light">
     <!-- User Dropdown Menu -->
     <li class="nav-item dropdown">
       <a class="nav-link" data-toggle="dropdown" href="#">
-        <i class="fas fa-user"></i> Log out
+        <i class="fas fa-user"></i> Logout
       </a>
       <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
         <a href="#" class="dropdown-item">
@@ -76,7 +86,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="/admin/dashboard" class="brand-link">
       {{-- <img src="Admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> --}}
       <span class="brand-text font-weight-light">HKBP Sabungan Dashboard</span>
     </a>
@@ -111,8 +121,8 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="/dashboard" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+            <a href="/admin/dashboard" class="nav-link">
+              <i class="nav-icon fas fa-home"></i>
               <p>
                 Dashboard
               </p>
@@ -136,7 +146,7 @@
           </li>
           <li class="nav-item">
             <a href="/admin/faq" class="nav-link">
-              <i class="nav-icon fas fa-newspaper"></i>
+              <i class="nav-icon fas fa-question"></i>
               <p>
                 Faq
               </p>
@@ -144,7 +154,7 @@
           </li>
           <li class="nav-item">
             <a href="/admin/datajemaat" class="nav-link">
-              <i class="nav-icon fas fa-newspaper"></i>
+              <i class="nav-icon fas fa-user-plus"></i>
               <p>
                 Data Jemaat
               </p>
@@ -152,7 +162,7 @@
           </li>
           <li class="nav-item">
             <a href="/admin/galeri" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
+              <i class="nav-icon fas fa-image"></i>
               <p>
                 Galeri
               </p>
@@ -160,7 +170,7 @@
           </li>
           <li class="nav-item">
             <a href="/admin/jadwalibadah" class="nav-link">
-              <i class="nav-icon fas fa-newspaper"></i>
+              <i class="nav-icon fas fa-calendar"></i>
               <p>
                 Jadwal Ibadah
               </p>
@@ -168,7 +178,7 @@
           </li>
           <li class="nav-item">
             <a href="/admin/donasi" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
+              <i class="nav-icon fas fa-heart"></i>
               <p>
                 Donasi
               </p>
