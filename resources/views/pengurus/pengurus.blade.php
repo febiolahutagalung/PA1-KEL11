@@ -17,10 +17,10 @@
                 </div>
                 <div class="card-footer">
                     <a href="{{ url('/admin/editpengurus/'.$pengurus->id)}}" class="btn btn-primary">Edit</a>
-                    <form action="{{ url('/admin/hapuspengurus/'.$pengurus->id)}}" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');"> 
+                    <form action="{{ url('/admin/hapuspengurus/'.$pengurus->id)}}" method="post"> 
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger ml-9">Hapus</button>
+                        <button type="submit" class="btn btn-danger ml-9 delete-btn">Hapus</button>
                     </form>
                 </div>
             </div>
