@@ -22,7 +22,7 @@
                     <form action="{{ url('/admin/hapusfaq/'.$faq->id)}}" method="post" onsubmit="return confirm('Yakin mau hapus?');"> 
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger ml-2 delete-btn">Hapus</button>
+                        <button type="submit" class="btn btn-danger ml-2 delete-btn">Delete</button>
                     </form>
                 </td>
             </tr>

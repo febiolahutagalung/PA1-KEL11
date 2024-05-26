@@ -28,7 +28,7 @@
                     <form action="{{ url('/admin/hapusjadwalibadah/'.$jadwalibadah->id)}}" method="post" onsubmit="return confirm('Yakin mau hapus???');"> 
                         @csrf
                         @method('DELETE') <!-- Method DELETE untuk hapus -->
-                        <button type="submit" class="btn btn-danger ml-3 delete-btn">Hapus</button>
+                        <button type="submit" class="btn btn-danger ml-3 delete-btn">Delete</button>
                     </form>
                 </td>
             </tr>

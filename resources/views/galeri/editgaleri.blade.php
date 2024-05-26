@@ -28,7 +28,7 @@
                         <option value="kegiatan" {{ $galeri->kategori == 'kegiatan' ? 'selected' : '' }}>Kegiatan</option>
                     </select>
                 </div>
-                <button class="btn btn-primary update-btn" type="submit ">Update Galeri</button>
+                <button class="btn btn-primary update-btn" type="submit ">Submit</button>
             </form>
         </div>
         <div class="col-md-6">

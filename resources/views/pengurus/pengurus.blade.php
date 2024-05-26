@@ -20,7 +20,7 @@
                     <form action="{{ url('/admin/hapuspengurus/'.$pengurus->id)}}" method="post"> 
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger ml-9 delete-btn">Hapus</button>
+                        <button type="submit" class="btn btn-danger ml-9 delete-btn">Delete</button>
                     </form>
                 </div>
             </div>

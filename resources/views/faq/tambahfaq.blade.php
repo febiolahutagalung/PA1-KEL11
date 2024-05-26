@@ -14,7 +14,7 @@
             <label for="jawaban" class="form-label">Jawaban</label>
             <textarea class="form-control" id="jawaban" name="jawaban"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Simpan</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
 @endsection

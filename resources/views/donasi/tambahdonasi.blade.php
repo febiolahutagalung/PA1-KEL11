@@ -37,7 +37,7 @@
             <label for="jumlahdonasi" class="form-label">Jumlah Donasi</label>
             <input type="number" class="form-control" id="jumlahdonasi" name="jumlahdonasi">
         </div>
-        <button type="submit" class="btn btn-primary">Simpan</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
 @endsection

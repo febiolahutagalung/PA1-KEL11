@@ -17,7 +17,7 @@
                     <form action="{{ url('/admin/hapusgaleri/'.$galeri->id)}}" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');"> 
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger mr-2 delete-btn">Hapus</button>
+                        <button type="submit" class="btn btn-danger mr-2 delete-btn">Delete</button>
                     </form>
                     <a href="{{ url('/admin/editgaleri/'.$galeri->id)}}" class="btn btn-primary ">Edit</a>
                 </div>

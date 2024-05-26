@@ -26,7 +26,7 @@
             <label for="photo">File PDF:</label><br>
             <input type="file" class="form-control" id="pdf" name="pdf"><br><br>
         </div>
-        <button type="submit" class="btn btn-primary">Simpan</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
 @endsection

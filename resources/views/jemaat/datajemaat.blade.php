@@ -30,7 +30,7 @@
                     <form action="{{ url('/admin/hapusdatajemaat/'.$datajemaat->id)}}" method="post" class="delete-form">
                         @csrf
                         @method('DELETE') <!-- Method DELETE untuk hapus -->
-                        <button type="submit" class="btn btn-danger ml-3 delete-btn">Hapus</button>
+                        <button type="submit" class="btn btn-danger ml-3 delete-btn">Delete</button>
                     </form>
                 </td>
             </tr>

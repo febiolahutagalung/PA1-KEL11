@@ -25,7 +25,7 @@
             <label for="pengkhotbah" class="form-label">Pengkhotbah</label>
             <input type="text" class="form-control" id="pengkhotbah" name="pengkhotbah">
         </div>
-        <button type="submit" class="btn btn-primary">Simpan</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
 @endsection

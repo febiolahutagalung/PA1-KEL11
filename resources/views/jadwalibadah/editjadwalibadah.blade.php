@@ -43,7 +43,7 @@
                     @enderror
                 </div>
                 
-                <button class="btn btn-primary update-btn" type="submit ">Update Jadwal Ibadah</button>
+                <button class="btn btn-primary update-btn" type="submit ">Submit</button>
             </form>
         </div>
         <div class="col-md-6">

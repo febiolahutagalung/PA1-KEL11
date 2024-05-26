@@ -31,7 +31,7 @@
                         <form action="{{ url('/admin/hapuswarta/'.$warta->id)}}" method="post" "> 
                             @csrf
                             @method('DELETE') <!-- Method DELETE untuk hapus -->
-                            <button type="submit" class="btn btn-danger delete-btn">Hapus</button>
+                            <button type="submit" class="btn btn-danger delete-btn">Delete</button>
                         </form>
                     </td>
                 </tr>

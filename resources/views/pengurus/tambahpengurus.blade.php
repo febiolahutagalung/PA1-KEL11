@@ -24,7 +24,7 @@
                             <input type="text" class="form-control" id="jabatan" name="jabatan">
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
                 </div>

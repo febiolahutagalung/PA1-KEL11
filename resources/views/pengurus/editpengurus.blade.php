@@ -31,7 +31,7 @@
                     @enderror
                 </div>
                 
-                <button class="btn btn-primary update-btn" type="submit">Update Pengurus </button>
+                <button class="btn btn-primary update-btn" type="submit">Submit</button>
             </form>
         </div>
     </div>
