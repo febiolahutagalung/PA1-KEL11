@@ -200,8 +200,6 @@
     </div>
   </section>
 
-  <!-- jQuery -->
-  <script src="{{ URL::asset('Admin/plugins/jquery/jquery.min.js') }}"></script>
   <!-- jQuery UI 1.11.4 -->
   <script src="{{ URL::asset('Admin/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
   <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -236,12 +234,12 @@
   <!-- SweetAlert and Delete Confirmation -->
   <script type="text/javascript">
     $(document).ready(function() {
-        $(document).on('click', '.delete-btn', function(e) {
+        $('.delete-btn').click(function(e) {
             e.preventDefault();
             var form = $(this).closest('form');
 
             Swal.fire({
-                title: "Apakah anda yakin ingin menghapus data ini?",
+                title: "Apakah anda yakin ingin menghapus data ini?",
                 text: "Anda tidak akan dapat mengembalikan ini!",
                 icon: "warning",
                 showCancelButton: true,
@@ -256,5 +254,24 @@
         });
     });
   </script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+        $('.update-btn').click(function(e) {
+            e.preventDefault();
+            var form = $(this).closest('form');
+            Swal.fire({
+                title: "Berhasil!",
+                text: "Data Berhasil Di Update",
+                icon: "success",
+                button: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 </html>

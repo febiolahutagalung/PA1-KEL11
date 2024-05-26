@@ -21,15 +21,11 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
-                <button class="btn btn-primary" type="submit">Update FAQ</button>
+                <button class="btn btn-primary update-btn" type="submit">Update FAQ</button>
             </form>
-        </div>
-        <div class="col-md-6">
-            <div class="btn-group-vertical">
-                <a href="{{url('admin/editfaq/'.$faq->id)}}" class="btn btn-info mb-2">Edit</a>
-                <a href="{{url('admin/deletefaq/'.$faq->id)}}" class="btn btn-danger">Hapus</a>
-            </div>
         </div>
     </div>
 </div>
 @endsection
+
+

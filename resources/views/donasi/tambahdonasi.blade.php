@@ -9,10 +9,16 @@
         <div class="mb-3">
             <label for="namapemberi" class="form-label">Nama Pemberi</label>
             <input type="text" class="form-control" id="namapemberi" name="namapemberi">
+             @error('namapemberi')
+                    <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="tanggal" class="form-label">Tanggal</label>
             <input type="date" class="form-control" id="tanggal" name="tanggal">
+            @error('tanggal')
+                    <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="jenis" class="form-label">Jenis Donasi</label>

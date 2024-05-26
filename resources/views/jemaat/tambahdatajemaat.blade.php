@@ -9,10 +9,16 @@
         <div class="mb-3">
             <label for="nama" class="form-label">Nama Lengkap</label>
             <input type="text" class="form-control" id="nama" name="nama">
+            @error('nama')
+                    <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="tanggallahir" class="form-label">Tanggal lahir</label>
             <input type="date" class="form-control" id="tanggallahir" name="tanggallahir">
+             @error('tanggallahir')
+                    <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>      
         <select class="form-control" id="jeniskelamin" name="jeniskelamin">
             <option value="Laki-laki">Laki-laki</option>
@@ -21,10 +27,16 @@
         <div class="mb-3">
             <label for="alamat" class="form-label">Alamat</label>
             <input type="text" class="form-control" id="alamat" name="alamat">
+             @error('alamat')
+                    <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="sektor" class="form-label">Sektor</label>
             <input type="text" class="form-control" id="sektor" name="sektor">
+             @error('sektor')
+                    <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <select class="form-control" id="statusbabtis" name="statusbabtis">
             <option value="Sudah babtis">Sudah Babtis</option>

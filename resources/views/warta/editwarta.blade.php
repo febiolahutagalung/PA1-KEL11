@@ -48,7 +48,7 @@
                     @enderror
                 </div>
                 
-                <button class="btn btn-primary" type="submit">Update warta</button>
+                <button class="btn btn-primary update-btn" type="submit">Update warta</button>
             </form>
         </div>
     </div>

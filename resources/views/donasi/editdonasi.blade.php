@@ -45,7 +45,7 @@
                     @enderror
                 </div> 
                 
-                <button class="btn btn-primary" type="submit">Update Data Jemaat</button>
+                <button class="btn btn-primary update-btn" type="submit ">Update Donasi</button>
             </form>
         </div>
         <div class="col-md-6">
