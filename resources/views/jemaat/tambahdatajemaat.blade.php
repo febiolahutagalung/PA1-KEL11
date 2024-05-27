@@ -43,7 +43,7 @@
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
-<<<<<<< HEAD
+
         <div class="mb-3">
             <label for="statusbabtis" class="form-label">Status Babtis</label>
             <select class="form-control @error('statusbabtis') is-invalid @enderror" id="statusbabtis" name="statusbabtis">
@@ -54,13 +54,7 @@
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
-=======
-        <select class="form-control" id="statusbabtis" name="statusbabtis">
-            <option value="Sudah babtis">Sudah Babtis</option>
-            <option value="Belum babtis">Belum Babtis</option>
-        </select>
-        
->>>>>>> 7412486e21ca3ba190af2043e88a4dc5c87dfa72
+
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
