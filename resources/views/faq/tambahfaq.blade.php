@@ -8,13 +8,19 @@
         @csrf
         <div class="mb-3">
             <label for="pertanyaan" class="form-label">Pertanyaan</label>
-            <input type="text" class="form-control" id="pertanyaan" name="pertanyaan">
+            <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror" id="pertanyaan" name="pertanyaan" placeholder="Masukkan pertanyaan">
+            @error('pertanyaan')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="jawaban" class="form-label">Jawaban</label>
-            <textarea class="form-control" id="jawaban" name="jawaban"></textarea>
+            <textarea class="form-control @error('jawaban') is-invalid @enderror" id="jawaban" name="jawaban" placeholder="Masukkan jawaban"></textarea>
+            @error('jawaban')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
-        <button type="submit" class="btn btn-primary">Simpan</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
 @endsection

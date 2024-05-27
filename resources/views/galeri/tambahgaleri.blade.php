@@ -13,21 +13,31 @@
                         @csrf
                         <div class="form-group">
                             <label for="judul">Judul</label>
-                            <input type="text" class="form-control" id="judul" name="judul">
+                            <input type="text" class="form-control @error('judul') is-invalid @enderror" id="judul" name="judul" placeholder="Masukkan judul Warta">
+                            @error('judul')
+                                 <div class="alert alert-danger">{{ $message }}</div>
+                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="gambar">Gambar:</label>
-                            <input type="file" class="form-control-file" id="gambar" name="gambar">
+                            <label for="gambar">Gambar</label>
+                            <input type="file" class="form-control-file @error('gambar') is-invalid @enderror" id="gambar" name="gambar">
+                            @error('gambar')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
-                            <label for="kategori">Kategori:</label>
-                            <select class="form-control" id="kategori" name="kategori">
+                            <label for="kategori">Kategori</label>
+                            <select class="form-control @error('kategori') is-invalid @enderror" id="kategori" name="kategori">
+                                <option value="" disabled selected>Pilih kategori</option>
                                 <option value="pastoral">Pastoral</option>
                                 <option value="kegiatan">Kegiatan</option>
                             </select>
+                            @error('kategori')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -36,5 +46,3 @@
     </div>
 </div>    
 @endsection
-
-

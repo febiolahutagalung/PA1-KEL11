@@ -13,18 +13,27 @@
                         @csrf
                         <div class="form-group">
                             <label for="gambar">Gambar:</label>
-                            <input type="file" class="form-control-file" id="gambar" name="gambar">
+                            <input type="file" class="form-control-file @error('gambar') is-invalid @enderror" id="gambar" name="gambar">
+                            @error('gambar')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="nama">Nama:</label>
-                            <input type="text" class="form-control" id="nama" name="nama">
+                            <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" placeholder="Masukkan nama pengurus">
+                            @error('nama')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="jabatan">Jabatan:</label>
-                            <input type="text" class="form-control" id="jabatan" name="jabatan">
+                            <input type="text" class="form-control @error('jabatan') is-invalid @enderror" id="jabatan" name="jabatan" placeholder="Masukkan jabatan pengurus">
+                            @error('jabatan')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
                 </div>

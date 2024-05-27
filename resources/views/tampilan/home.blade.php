@@ -205,11 +205,32 @@
     <div class="container-fluid service py-5">
         <div class="container py-5">
             <div class="mx-auto text-center mb-5" style="max-width: 900px;">
-                <h5 class="section-title px-3">Ayat Harian</h5>
-                <h1 class="mb-0" id="ayat">Mohon tunggu sebentar...</h1>
+                <h5 class="section-title px-3">Ibadah Minggu</h5>
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="jadwal-ibadah">
+                            <h2 class="ibadah-title">Ibadah I</h2>
+                            <p class="ibadah-time">Pkl. 09.00 Wib</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="jadwal-ibadah">
+                            <h2 class="ibadah-title">Ibadah II</h2>
+                            <p class="ibadah-time">Pkl. 11.00 Wib</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="jadwal-ibadah">
+                            <h2 class="ibadah-title">Ibadah III</h2>
+                            <p class="ibadah-time">Pkl. 17.00 Wib</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    
+    
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {

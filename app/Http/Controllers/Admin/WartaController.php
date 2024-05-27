@@ -121,6 +121,7 @@ class WartaController extends Controller
             'keterangan'=> 'required',
             'tanggal'=> 'required',
             'photo'=> 'required',
+            
         ]);
 
         $file = $request->file('photo');

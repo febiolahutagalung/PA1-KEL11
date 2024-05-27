@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <a href="{{url('admin/jadwalibadah')}}" class="btn btn-success mb-3">Kembali</a>
+    <a href="{{url('admin/jadwalibadah')}}" class="btn btn-success mb-3">back</a>
     <div class="row">
         <div class="col-md-6">
             <form action="{{ url('/admin/updatejadwalibadah/'.$jadwalibadah->id)}}" method="post" enctype="multipart/form-data">
@@ -43,7 +43,7 @@
                     @enderror
                 </div>
                 
-                <button class="btn btn-primary update-btn" type="submit ">Update Jadwal Ibadah</button>
+                <button class="btn btn-primary update-btn" type="submit ">Submit</button>
             </form>
         </div>
         <div class="col-md-6">

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <a href="{{url('admin/galeri')}}" class="btn btn-success mb-3">Kembali</a>
+    <a href="{{url('admin/galeri')}}" class="btn btn-success mb-3">back</a>
     <div class="row">
         <div class="col-md-6">
             <form action="{{ url('/admin/updategaleri/'.$galeri->id)}}" method="post" enctype="multipart/form-data">
@@ -28,7 +28,7 @@
                         <option value="kegiatan" {{ $galeri->kategori == 'kegiatan' ? 'selected' : '' }}>Kegiatan</option>
                     </select>
                 </div>
-                <button class="btn btn-primary update-btn" type="submit ">Update Galeri</button>
+                <button class="btn btn-primary update-btn" type="submit ">Submit</button>
             </form>
         </div>
         <div class="col-md-6">

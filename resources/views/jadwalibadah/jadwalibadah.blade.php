@@ -25,10 +25,10 @@
                 <td>{{ $jadwalibadah->pengkhotbah }}</td>
                 <td> <!-- Kolom untuk tombol edit dan hapus -->
                     <a href="{{ url('/admin/editjadwalibadah/'.$jadwalibadah->id)}}" class="btn btn-primary ml-3 mb-2">Edit</a>
-                    <form action="{{ url('/admin/hapusjadwalibadah/'.$jadwalibadah->id)}}" method="post" onsubmit="return confirm('Yakin mau hapus???');"> 
+                    <form action="{{ url('/admin/hapusjadwalibadah/'.$jadwalibadah->id)}}" method="post"> 
                         @csrf
                         @method('DELETE') <!-- Method DELETE untuk hapus -->
-                        <button type="submit" class="btn btn-danger ml-3 delete-btn">Hapus</button>
+                        <button type="submit" class="btn btn-danger ml-3 delete-btn">Delete</button>
                     </form>
                 </td>
             </tr>

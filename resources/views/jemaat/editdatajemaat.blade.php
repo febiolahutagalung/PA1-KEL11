@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <a href="{{url('admin/datajemaat')}}" class="btn btn-success mb-3">Kembali</a>
+    <a href="{{url('admin/datajemaat')}}" class="btn btn-success mb-3">back</a>
     <div class="row">
         <div class="col-md-6">
             <form action="{{ url('/admin/updatedatajemaat/'.$datajemaat->id)}}" method="post" enctype="multipart/form-data">
@@ -56,7 +56,7 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
-                <button class="btn btn-primary update-btn" type="submit">Update Data Jemaat</button>
+                <button class="btn btn-primary update-btn" type="submit">Submit</button>
             </form>
         </div>
         <div class="col-md-6">

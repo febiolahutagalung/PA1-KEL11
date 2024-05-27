@@ -28,10 +28,10 @@
                     </td>
                     <td> <!-- Kolom untuk tombol edit dan hapus -->
                         <a href="{{ url('/admin/editwarta/'.$warta->id)}}" class="btn btn-primary mb-2">Edit</a>
-                        <form action="{{ url('/admin/hapuswarta/'.$warta->id)}}" method="post" "> 
+                        <form action="{{ url('/admin/hapuswarta/'.$warta->id)}}" method="post"> 
                             @csrf
                             @method('DELETE') <!-- Method DELETE untuk hapus -->
-                            <button type="submit" class="btn btn-danger delete-btn">Hapus</button>
+                            <button type="submit" class="btn btn-danger delete-btn">Delete</button>
                         </form>
                     </td>
                 </tr>
