@@ -45,7 +45,12 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div> 
+<<<<<<< HEAD
                 <button class="btn btn-primary update-btn" type="submit">Submit</button>
+=======
+                
+                <button class="btn btn-primary update-btn" type="submit ">Submit</button>
+>>>>>>> 7412486e21ca3ba190af2043e88a4dc5c87dfa72
             </form>
         </div>
         <div class="col-md-6">
