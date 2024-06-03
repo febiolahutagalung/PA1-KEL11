@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Datajemaat;
+use App\Models\Datakeluarga;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Symfony\Contracts\Service\Attribute\Required;
@@ -40,23 +41,38 @@ class DatajemaatController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nama' => 'required',
-            'tanggallahir' => 'required',
-            'jeniskelamin' => 'required',
-            'alamat' => 'required',
+        $validate=[
+            'namakeluarga' => 'required',
+            'namaayah' => 'required',
+            'namaibu' => 'required',
             'sektor' => 'required',
-            'statusbabtis' => 'required',
-        ]);
+            'alamat' => 'required',
+            'namaanak' => 'required',
+            ];
+
+        $message =[
+            'namakeluarga.requried' =>'Nama Harus Diisi',
+            'namaayah.requried' =>'Nama Harus Diisi',
+            'namaibu.requried' =>'Nama Harus Diisi',
+            'sektor.required' => 'Sektor Harus Diisi',
+            'alamat.required' => 'Alamat Harus Diisi',
+            'namaanak.*required' => 'Nama Anak Harus Diisi',
+        ];
+        $this -> validate($request, $validate, $message);
 
         $newDatajemaat = new Datajemaat;
-        $newDatajemaat->nama = $request->nama;
-        $newDatajemaat->tanggallahir = $request->tanggallahir;
-        $newDatajemaat->jeniskelamin = $request->jeniskelamin;
-        $newDatajemaat->alamat = $request->alamat;
+        $newDatajemaat->namakeluarga = $request->namakeluarga;
         $newDatajemaat->sektor = $request->sektor;
-        $newDatajemaat->statusbabtis = $request->statusbabtis;
-       
+        $newDatajemaat->alamat = $request->alamat; 
+
+        $numDatajemaat = count($request->namaanak);
+
+        for ($i = 0; $i < $numDatajemaat; $i++){
+            $newDatakeluarga = new Datakeluarga;
+            $newDatakeluarga->namaayah = $request->namaayah;
+            $newDatakeluarga->namaibu = $request->namaibu;
+            $newDatakeluarga->namaanak = $request->namaanak[$i];
+        }
 
         $newDatajemaat->save();
         return redirect("/admin/datajemaat")->with('status', 'Datajemaat Berhasil ditambahkan');
@@ -95,23 +111,19 @@ class DatajemaatController extends Controller
     public function update(Request $request, $datajemaatId)
     {
         $request->validate([
-            'nama' => 'required',
-            'tanggallahir' => 'required',
-            'jeniskelamin' => 'required',
+            'namakeluarga' => 'required',
+            'namaanak' => 'required',
             'alamat' => 'required',
             'sektor' => 'required',
-            'statusbabtis' => 'required',
+
         ]);
 
         Datajemaat::where('id', $datajemaatId)
             ->update([
-                'nama'=>$request->nama,
-                'tanggallahir'=>$request->tanggallahir,
-                'jeniskelamin'=>$request->jeniskelamin,
+                'namakeluarga'=>$request->namakeluarga,
+                'namaanak'=>$request->tanggallahir,
                 'alamat'=>$request->alamat,
-                'sektor'=>$request->sektor,
-                'statusbabtis'=>$request->statusbabtis,
-                
+                'sektor'=>$request->sektor,                
             ]);
         return redirect('/admin/datajemaat')->with('status','datajemaat dengan id'.$datajemaatId.'berhasil di ubah');
     }
@@ -129,12 +141,13 @@ class DatajemaatController extends Controller
         return redirect('/admin/datajemaat')->with('status', 'datajemaat dengan id ' .$datajemaatId. ' berhasil dihapus');
     }
 
-    public function search(Request $request)
-    {
-        $search = $request->query('search');
-        $data = DataJemaat::where('nama', 'like', "%{$search}%")
-            ->orWhere('alamat', 'like', "%{$search}%")
-            ->paginate(10);
-        return view('datajemaat', compact('data'));
-    }
+    // public function search(Request $request)
+    // {
+    //     $search = $request->query('search');
+    //     $data = DataJemaat::where('nama', 'like', "%{$search}%")
+    //         ->orWhere('alamat', 'like', "%{$search}%")
+    //         ->paginate(10);
+    //     return view('datajemaat', compact('data'));
+    // }
 }
+// ini adalah untuk melakukan pencarian data jemaat berdasarkan parameter yang dimasukkan oleh pengguna melalui query string.

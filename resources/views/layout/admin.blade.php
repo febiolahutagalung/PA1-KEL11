@@ -230,6 +230,7 @@
   <script src="{{ URL::asset('Admin/dist/js/adminlte.js') }}"></script>
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
   <script src="{{ URL::asset('Admin/dist/js/pages/dashboard.js') }}"></script>
+  @stack('script')
 
   <!-- SweetAlert and Delete Confirmation -->
   <script type="text/javascript">

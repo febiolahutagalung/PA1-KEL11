@@ -47,14 +47,12 @@ class AdminController extends Controller
         if($request->isMethod('post')){
             $data = $request->input();
             $required = [
-                'nama' => 'required|regex:/^[\pL\s\-]+$/u',
+  
                 'username' => 'required|max:20|unique:admins',
                 'password' => 'required|min:8',
             ];
 
             $message = [
-                'nama.required' => 'Nama tidak boleh kosong',
-                'nama.regex' => 'Nama tidak boleh menggunakan simbol',
                 'username.required' => 'Username tidak boleh kosong',
                 'username.max' => 'Username tidak boleh melebihi 20 karakter',
                 'username.unique' => 'Username sudah terdaftar',
@@ -64,7 +62,7 @@ class AdminController extends Controller
 
             $this->validate($request, $required, $message);
             Admin::insert([
-                'nama' => $request->input('nama'),
+
                 'username' => $request->input('username'),
                 'password' => Hash::make($request->input('password')),
             ]);

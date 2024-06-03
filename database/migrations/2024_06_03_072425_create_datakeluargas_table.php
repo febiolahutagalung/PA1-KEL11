@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('admins', function (Blueprint $table) {
+        Schema::create('datakeluargas', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('username')->nullable();
-            $table->string('password')->nullable();
+            $table->timestamps();
+            $table->unsignedBigInteger('datajemaat_id');
+            $table->foreign('datajemaat_id')->references('id')->on('datajemaat')->onDelete('cascade');
+            $table->string('namaayah');
+            $table->string('namaibu');
+            $table->string('namaanak');
         });
     }
 
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('datakeluargas');
     }
 };

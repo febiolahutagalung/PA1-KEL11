@@ -19,7 +19,7 @@
                 <td>{{ $faq->jawaban }}</td>
                 <td>
                     <a href="{{ url('/admin/editfaq/'.$faq->id)}}" class="btn btn-primary">Edit</a>
-                    <form action="{{ url('/admin/hapusfaq/'.$faq->id)}}" method="post" onsubmit="return confirm('Yakin mau hapus?');"> 
+                    <form action="{{ url('/admin/hapusfaq/'.$faq->id)}}" method="post" > 
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger ml-2 delete-btn">Delete</button>

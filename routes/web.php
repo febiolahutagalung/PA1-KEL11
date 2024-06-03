@@ -56,6 +56,7 @@ Route::get('/lokasi', function () {
 //         'title'=> 'wisma'
 //     ]);
 // });
+//untuk mengarahkan semua req ke method yang tepat
 Route::get('/profile', 'App\Http\Controllers\ProfileController@index');
 Route::get('/', 'App\Http\Controllers\FaqtampilanController@index');
 Route::get('/warta', 'App\Http\Controllers\WartatampilanController@index');
