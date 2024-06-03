@@ -23,14 +23,8 @@
                 <tr>
                     <th scope="col">No</th>
                     <th scope="col">Nama Keluarga</th>
-                    <th scope="col">Nama Ayah</th>
-                    <th scope="col">Tanggal Lahir Ayah</th>
-                    <th scope="col">Status Baptis Ayah</th>
-                    <th scope="col">Alamat Ayah</th>
-                    <th scope="col">Nama Ibu</th>
-                    <th scope="col">Tanggal Lahir Ibu</th>
-                    <th scope="col">Status Baptis Ibu</th>
-                    <th scope="col">Alamat Ibu</th>
+                    <th scope="col">Sektor</th>
+                    <th scope="col">Alamat</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,15 +32,9 @@
                 @foreach ($data as $row)
                 <tr>
                     <td>{{ $nomor }}</td>
-                    <td>{{ $row->nama_keluarga }}</td>
-                    <td>{{ $row->nama_ayah }}</td>
-                    <td>{{ $row->tgl_lahir_ayah }} (Ayah)</td>
-                    <td>{{ $row->status_babtis_ayah }}</td>
-                    <td>{{ $row->alamat_ayah }}</td>
-                    <td>{{ $row->nama_ibu }}</td>
-                    <td>{{ $row->tgl_lahir_ibu }} (Ibu)</td>
-                    <td>{{ $row->status_babtis_ibu }}</td>
-                    <td>{{ $row->alamat_ibu }}</td>
+                    <td><a href="{{ url('viewdatajemaat/'.$row->id) }}">{{ $row->namakeluarga }}</a></td>
+                    <td>{{ $row->sektor }}</td>
+                    <td>{{ $row->alamat }}</td>
                 </tr>
                 <?php $nomor++; ?>
                 @endforeach

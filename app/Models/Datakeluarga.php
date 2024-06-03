@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Datakeluarga extends Model
 {
     use HasFactory;
-    protected $table ='datakeluarga';
+    protected $table ='datakeluargas';
 
     public function jemaat(){
         return $this->belongsTo((Datajemaat::class));

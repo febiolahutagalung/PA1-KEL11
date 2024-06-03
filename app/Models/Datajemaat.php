@@ -9,4 +9,8 @@ class Datajemaat extends Model
 {
     use HasFactory;
     protected $table =('datajemaats');
+
+    public function keluarga(){
+        return $this->belongsTo((Datakeluarga::class));
+    }
 }

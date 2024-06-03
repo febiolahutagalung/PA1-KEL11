@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('datakeluargas', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->unsignedBigInteger('datajemaat_id');
-            $table->foreign('datajemaat_id')->references('id')->on('datajemaat')->onDelete('cascade');
+            $table->foreign('datajemaat_id')->references('id')->on('datajemaats')->onDelete('cascade');
             $table->string('namaayah');
             $table->string('namaibu');
             $table->string('namaanak');
+            $table->timestamps();
         });
     }
 

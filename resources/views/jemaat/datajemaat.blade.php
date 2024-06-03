@@ -11,64 +11,20 @@
             <thead>
                 <tr>
                     <th>Nama Keluarga</th>
-                    <th>Nama Ayah</th>
-                    <th>Tanggal Lahir Ayah</th>
-                    <th>Alamat Ayah</th>
-                    <th>Status Babtis Ayah</th>
-                    <th>Nama Ibu</th>
-                    <th>Tanggal Lahir Ibu</th>
-                    <th>Alamat Ibu</th>
-                    <th>Status Babtis Ibu</th>
-                    <th>Nama Anak</th>
-                    <th>Tanggal Lahir Anak</th>
-                    <th>Jenis Kelamin Anak</th>
-                    <th>Alamat Anak</th>
-                    <th>Status Babtis Anak</th>
+                    <th>Sektor</th>
+                    <th>Alamat</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($allDatajemaat as $datajemaat)
                 <tr>
-                    <td>{{ $datajemaat->nama_keluarga }}</td>
-                    <td>{{ $datajemaat->nama_ayah }}</td>
-                    <td>{{ $datajemaat->tgl_lahir_ayah }}</td>
-                    <td>{{ $datajemaat->alamat_ayah }}</td>
-                    <td>{{ $datajemaat->status_babtis_ayah }}</td>
-                    <td>{{ $datajemaat->nama_ibu }}</td>
-                    <td>{{ $datajemaat->tgl_lahir_ibu }}</td>
-                    <td>{{ $datajemaat->alamat_ibu }}</td>
-                    <td>{{ $datajemaat->status_babtis_ibu }}</td>
-                    <td colspan="5">
-                        @if($datajemaat->anak->isEmpty())
-                            <p>Tidak ada data anak.</p>
-                        @else
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Nama Anak</th>
-                                        <th>Tanggal Lahir Anak</th>
-                                        <th>Jenis Kelamin Anak</th>
-                                        <th>Alamat Anak</th>
-                                        <th>Status Babtis Anak</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($datajemaat->anak as $anak)
-                                    <tr>
-                                        <td>{{ $anak->nama }}</td>
-                                        <td>{{ $anak->tgl_lahir }}</td>
-                                        <td>{{ $anak->jeniskelamin }}</td>
-                                        <td>{{ $anak->alamat }}</td>
-                                        <td>{{ $anak->status_babtis }}</td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        @endif
-                    </td>
+                    <td>{{ $datajemaat->namakeluarga }}</td>
+                    <td>{{ $datajemaat->sektor }}</td>
+                    <td>{{ $datajemaat->alamat }}</td>
                     <td>
-                        <a href="{{ url('/admin/editdatajemaat/'.$datajemaat->id) }}" class="btn btn-primary ml-3 mb-2">Edit</a>
+                        <a href="{{ url('/admin/viewdatajemaat/'.$datajemaat->id) }}" class="btn btn-primary ml-3 mb-2">View</a>
+                        <a href="{{ url('/admin/editdatajemaat/'.$datajemaat->id) }}" class="btn btn-warning ml-3 mb-2">Edit</a>
                         <form action="{{ url('/admin/hapusdatajemaat/'.$datajemaat->id) }}" method="post" class="d-inline">
                             @csrf
                             @method('DELETE')

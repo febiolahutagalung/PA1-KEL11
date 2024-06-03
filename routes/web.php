@@ -51,17 +51,14 @@ Route::get('/lokasi', function () {
         "title"=> "Lokasi"
     ]);
 });
-// Route::get('/galeri', function(){
-//     return view('tampilan.galeri',[
-//         'title'=> 'wisma'
-//     ]);
-// });
+
 //untuk mengarahkan semua req ke method yang tepat
 Route::get('/profile', 'App\Http\Controllers\ProfileController@index');
 Route::get('/', 'App\Http\Controllers\FaqtampilanController@index');
 Route::get('/warta', 'App\Http\Controllers\WartatampilanController@index');
 Route::get('/galeri', 'App\Http\Controllers\GaleritampilanController@index');
 Route::get('/datajemaat', 'App\Http\Controllers\DatajemaattampilanController@index');
+Route::get('/viewdatajemaat/{dataJemaatId}', 'App\Http\Controllers\DatajemaattampilanController@show');
 Route::get('/jadwalibadah', 'App\Http\Controllers\JadwalibadahtampilanController@index');
 Route::get('/donasi', 'App\Http\Controllers\DonasitampilanController@index');
 
@@ -102,6 +99,7 @@ Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function
         Route::get('/datajemaat' , 'DatajemaatController@index' );
         Route::get('/tambahdatajemaat' , 'DatajemaatController@create' );
         Route::get('/editdatajemaat/{datajemaatId}' , 'DatajemaatController@edit' );
+        Route::get('/viewdatajemaat/{datajemaatId}' , 'DatajemaatController@show' );
         Route::post('/updatedatajemaat/{datajemaatId}' , 'DatajemaatController@update' );
         Route::delete('/hapusdatajemaat/{datajemaatId}' , 'DatajemaatController@destroy' );
         Route::post('/tambahdatajemaat' , 'DatajemaatController@store' );

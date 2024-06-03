@@ -64,17 +64,18 @@ class DatajemaatController extends Controller
         $newDatajemaat->namakeluarga = $request->namakeluarga;
         $newDatajemaat->sektor = $request->sektor;
         $newDatajemaat->alamat = $request->alamat; 
+        $newDatajemaat->save();
 
-        $numDatajemaat = count($request->namaanak);
+        $numAnak = count($request->namaanak);
 
-        for ($i = 0; $i < $numDatajemaat; $i++){
+        for($i = 0; $i < $numAnak; $i++) {
             $newDatakeluarga = new Datakeluarga;
+            $newDatakeluarga->datajemaat_id = $newDatajemaat->id;
             $newDatakeluarga->namaayah = $request->namaayah;
             $newDatakeluarga->namaibu = $request->namaibu;
             $newDatakeluarga->namaanak = $request->namaanak[$i];
+            $newDatakeluarga->save();
         }
-
-        $newDatajemaat->save();
         return redirect("/admin/datajemaat")->with('status', 'Datajemaat Berhasil ditambahkan');
     }
 
@@ -86,7 +87,9 @@ class DatajemaatController extends Controller
      */
     public function show($id)
     {
-        //
+        $keluarga = Datakeluarga::where('datajemaat_id', $id)->get();
+        $jemaat = Datajemaat::find($id);
+        return view('jemaat.viewdatajemaat', compact('keluarga', 'jemaat'));
     }
 
     /**
