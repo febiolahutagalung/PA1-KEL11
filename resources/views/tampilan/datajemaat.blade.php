@@ -25,6 +25,7 @@
                     <th scope="col">Nama Keluarga</th>
                     <th scope="col">Sektor</th>
                     <th scope="col">Alamat</th>
+                    <th scope="col">Detail</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,9 +33,11 @@
                 @foreach ($data as $row)
                 <tr>
                     <td>{{ $nomor }}</td>
-                    <td><a href="{{ url('viewdatajemaat/'.$row->id) }}">{{ $row->namakeluarga }}</a></td>
+                    <td>{{ $row->namakeluarga }}</td>
                     <td>{{ $row->sektor }}</td>
                     <td>{{ $row->alamat }}</td>
+                    <td> <a href="{{ url('viewdatajemaat/'.$row->id) }}" class="btn btn-primary ml-3 mb-2">View</a></td>
+                    
                 </tr>
                 <?php $nomor++; ?>
                 @endforeach

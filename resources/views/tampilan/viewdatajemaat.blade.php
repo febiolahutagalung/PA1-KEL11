@@ -37,6 +37,24 @@
     .family-table th {
         background-color: #f2f2f2;
     }
+
+    .back-button {
+        display: block;
+        width: 100%;
+        max-width: 200px;
+        margin: 20px auto;
+        padding: 10px;
+        text-align: center;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+    }
+
+    .back-button:hover {
+        background-color: #0056b3;
+    }
 </style>
 
 <div class="container">
@@ -67,5 +85,7 @@
             </tr>
         </table>
     </div>
+    
+    <a href="{{ url('/datajemaat') }}" class="back-button">Back</a>
 </div>
 @endsection
