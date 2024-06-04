@@ -124,7 +124,7 @@ class DatajemaatController extends Controller
         Datajemaat::where('id', $datajemaatId)
             ->update([
                 'namakeluarga'=>$request->namakeluarga,
-                'namaanak'=>$request->tanggallahir,
+                'namaanak'=>$request->namaanak,
                 'alamat'=>$request->alamat,
                 'sektor'=>$request->sektor,                
             ]);

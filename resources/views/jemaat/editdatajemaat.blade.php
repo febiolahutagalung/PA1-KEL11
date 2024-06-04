@@ -1,117 +1,88 @@
 @extends('layout.admin')
 
+@push('script')
+<script>
+    $(document).ready(function() {
+        $('#jumlahAnak').change(function() {
+            var numAnak = $(this).val();
+            var html = '';
+            for (var i = 2; i <= numAnak; i++) {
+                html += '<div class="form-group">';
+                html += '<label for="namaanak' + i + '" class="form-label">Nama Anak ' + i + '</label>';
+                html += '<input type="text" class="form-control @error("namaanak.' + (i-1) + '") is-invalid @enderror" id="namaanak' + i + '" name="namaanak[]" placeholder="Masukkan Nama Anak">';
+                html += '@error("namaanak.' + (i-1) + '")';
+                html += '<div class="alert alert-danger">{{ $message }}</div>';
+                html += '@enderror';
+                html += '</div>';
+            }
+            $('#additionalFields').html(html);
+        });
+    });
+</script>
+@endpush
+
 @section('content')
 <div class="container">
-    <a href="{{url('admin/datajemaat')}}" class="btn btn-success mb-3">back</a>
-    <div class="row">
-        <div class="col-md-6">
-            <form action="{{ url('/admin/updatedatajemaat/'.$datajemaat->id)}}" method="post" enctype="multipart/form-data">
-                @csrf
-                <div class="mb-3">
-                    <label for="nama_keluarga" class="form-label">Nama Keluarga</label>
-                    <input type="text" class="form-control @error('nama_keluarga') is-invalid @enderror" id="nama_keluarga" name="nama_keluarga" placeholder="Masukkan nama keluarga">
-                    @error('nama_keluarga')
+    <a href="{{ url('admin/datajemaat') }}" class="btn btn-success mb-3">Back</a>
+    <form action="{{ url('/admin/updatedatajemaat/' . $datajemaat->id) }}" method="post" enctype="multipart/form-data">
+        @csrf
+        <div class="card-body">
+            <div class="mb-3">
+                <label for="namakeluarga" class="form-label">Nama Keluarga</label>
+                <input type="text" class="form-control @error('namakeluarga') is-invalid @enderror" id="namakeluarga" name="namakeluarga" placeholder="Masukkan Nama Keluarga">
+                @error('namakeluarga')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="sektor" class="form-label">Sektor</label>
+                <input type="text" class="form-control @error('sektor') is-invalid @enderror" id="sektor" name="sektor" placeholder="Masukkan Sektor">
+                @error('sektor')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="alamat" class="form-label">Alamat</label>
+                <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" name="alamat" placeholder="Masukkan Alamat">
+                @error('alamat')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="namaayah" class="form-label">Nama Ayah</label>
+                <input type="text" class="form-control @error('namaayah') is-invalid @enderror" id="namaayah" name="namaayah" placeholder="Masukkan Nama Ayah">
+                @error('namaayah')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="namaibu" class="form-label">Nama Ibu</label>
+                <input type="text" class="form-control @error('namaibu') is-invalid @enderror" id="namaibu" name="namaibu" placeholder="Masukkan Nama Ibu">
+                @error('namaibu')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="jumlahAnak">Jumlah Anak</label>
+                <select class="form-control" id="jumlahAnak" name="jumlahAnak">
+                    @for ($i = 1; $i <= 30; $i++)
+                        <option value="{{ $i }}">{{ $i }}</option>
+                    @endfor
+                </select>
+            </div>
+            <div id="anak">
+                <div class="form-group">
+                    <label for="namaanak1" class="form-label">Nama Anak 1</label>
+                    <input type="text" class="form-control @error('namaanak.0') is-invalid @enderror" id="namaanak1" name="namaanak[]" placeholder="Masukkan Nama Anak">
+                    @error('namaanak.0')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
-                <div class="mb-3">
-                    <label for="nama_ayah" class="form-label">Nama Ayah</label>
-                    <input type="text" class="form-control @error('nama_ayah') is-invalid @enderror" id="nama_ayah" name="nama_ayah" placeholder="Masukkan nama ayah">
-                    @error('nama_ayah')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <label for="tgl_lahir_ayah" class="form-label">Tanggal Lahir Ayah</label>
-                    <input type="date" class="form-control @error('tgl_lahir_ayah') is-invalid @enderror" id="tgl_lahir_ayah" name="tgl_lahir_ayah">
-                    @error('tgl_lahir_ayah')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <label for="status_babtis_ayah" class="form-label">Status Babtis Ayah</label>
-                    <input type="text" class="form-control @error('status_babtis_ayah') is-invalid @enderror" id="status_babtis_ayah" name="status_babtis_ayah" placeholder="Masukkan status babtis ayah">
-                    @error('status_babtis_ayah')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <label for="alamat_ayah" class="form-label">Alamat Ayah</label>
-                    <input type="text" class="form-control @error('alamat_ayah') is-invalid @enderror" id="alamat_ayah" name="alamat_ayah" placeholder="Masukkan alamat ayah">
-                    @error('alamat_ayah')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                
-                <!-- Isi Form untuk Data Ibu -->
-                <div class="mb-3">
-                    <label for="nama_ibu" class="form-label">Nama Ibu</label>
-                    <input type="text" class="form-control @error('nama_ibu') is-invalid @enderror" id="nama_ibu" name="nama_ibu" placeholder="Masukkan nama ibu">
-                    @error('nama_ibu')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <label for="tgl_lahir_ibu" class="form-label">Tanggal Lahir Ibu</label>
-                    <input type="date" class="form-control @error('tgl_lahir_ibu') is-invalid @enderror" id="tgl_lahir_ibu" name="tgl_lahir_ibu">
-                    @error('tgl_lahir_ibu')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <label for="status_babtis_ibu" class="form-label">Status Babtis Ibu</label>
-                    <input type="text" class="form-control @error('status_babtis_ibu') is-invalid @enderror" id="status_babtis_ibu" name="status_babtis_ibu" placeholder="Masukkan status babtis ibu">
-                    @error('status_babtis_ibu')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="mb-3">
-                    <label for="alamat_ibu" class="form-label">Alamat Ibu</label>
-                    <input type="text" class="form-control @error('alamat_ibu') is-invalid @enderror" id="alamat_ibu" name="alamat_ibu" placeholder="Masukkan alamat ibu">
-                    @error('alamat_ibu')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                  
-                <!-- Isi Form untuk Data Anak-anak -->
-                <div id="anakContainer">
-                    <div class="mb-3 anak">
-                        <label for="nama_anak" class="form-label">Nama Anak</label>
-                        <input type="text" class="form-control @error('nama_anak.*') is-invalid @enderror" name="nama_anak[]" placeholder="Masukkan nama anak">
-                        @error('nama_anak.*')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="mb-3">
-                        <label for="tgl_lahir_anak" class="form-label">Tanggal Lahir Anak</label>
-                        <input type="date" class="form-control @error('tgl_lahir_anak') is-invalid @enderror" id="tgl_lahir_anak" name="tgl_lahir_anak">
-                        @error('tgl_lahir_anak')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="mb-3">
-                        <label for="status_babtis_anak" class="form-label">Status Babtis Anak</label>
-                        <input type="text" class="form-control @error('status_babtis_anak') is-invalid @enderror" id="status_babtis_anak" name="status_babtis_anak" placeholder="Masukkan status babtis anak">
-                        @error('status_babtis_anak')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="mb-3">
-                        <label for="alamat_anak" class="form-label">Alamat Anak</label>
-                        <input type="text" class="form-control @error('alamat_anak') is-invalid @enderror" id="alamat_amak" name="alamat_anak" placeholder="Masukkan alamat anak">
-                        @error('alamat_anak')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    
-                </div>
-                <button class="btn btn-primary update-btn" type="submit">Submit</button>
-            </form>
+            </div>
+        
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
         </div>
-        <div class="col-md-6">
-        </div>
-    </div>
+    </form>
 </div>
 @endsection
-
-
