@@ -1,6 +1,6 @@
 @extends('layout.admin')
 @section('content')
-    
+
 <div class="container">
     <a href="{{ url('/admin/tambahwarta') }}" class="btn btn-success mb-3">Tambah Warta</a>
     <h1>Warta Jemaat</h1>
@@ -28,7 +28,7 @@
                     </td>
                     <td> <!-- Kolom untuk tombol edit dan hapus -->
                         <a href="{{ url('/admin/editwarta/'.$warta->id)}}" class="btn btn-primary mb-2">Edit</a>
-                        <form action="{{ url('/admin/hapuswarta/'.$warta->id)}}" method="post"> 
+                        <form action="{{ url('/admin/hapuswarta/'.$warta->id)}}" method="post">
                             @csrf
                             @method('DELETE') <!-- Method DELETE untuk hapus -->
                             <button type="submit" class="btn btn-danger delete-btn">Delete</button>

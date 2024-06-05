@@ -3,11 +3,13 @@
 @section('container')
 <style>
     body {
-        padding-top: 80px; /* Adjust this value based on the height of your navbar */
+        padding-top: 80px;
+        /* Adjust this value based on the height of your navbar */
     }
 
     .container {
-        margin-top: 100px; /* Ensure enough space to avoid overlapping with the navbar */
+        margin-top: 100px;
+        /* Ensure enough space to avoid overlapping with the navbar */
         background-color: #f8f9fa;
         padding: 20px;
         border-radius: 8px;
@@ -28,7 +30,8 @@
         border-collapse: collapse;
     }
 
-    .family-table th, .family-table td {
+    .family-table th,
+    .family-table td {
         border: 1px solid #ddd;
         padding: 8px;
         text-align: left;
@@ -62,7 +65,7 @@
         <h1>Data Keluarga</h1>
         <h2>{{ $jemaat->namakeluarga }}</h2>
     </div>
-    
+
     <div class="family-details">
         <table class="family-table">
             <tr>
@@ -78,14 +81,14 @@
                 <td>
                     <ul>
                         @foreach($keluarga as $item)
-                            <li>{{ $item->namaanak }}</li>
+                        <li>{{ $item->namaanak }}</li>
                         @endforeach
                     </ul>
                 </td>
             </tr>
         </table>
     </div>
-    
+
     <a href="{{ url('/datajemaat') }}" class="back-button">Back</a>
 </div>
 @endsection

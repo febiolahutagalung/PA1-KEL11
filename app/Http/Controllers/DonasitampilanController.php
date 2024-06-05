@@ -9,8 +9,7 @@ class DonasitampilanController extends Controller
 {
     public function index()
     {
-        $JumlahDonasi = Donasi::sum('jumlahdonasi');
-        $allDonasi = Donasi::all();
-        return view('tampilan.donasi', compact('allDonasi', 'JumlahDonasi'));
+        $allDonasi = Donasi::all()->groupBy('jenis');
+        return view('tampilan.donasi', compact('allDonasi'));
     }
 }
