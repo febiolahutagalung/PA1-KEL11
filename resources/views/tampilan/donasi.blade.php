@@ -27,6 +27,7 @@
                 </tr>
             </thead>
             <tbody>
+                <?php $totalKeseluruhan = 0; ?>
                 @foreach ($allDonasi as $jenis => $donasiByJenis)
                 <?php $totalByJenis = 0;
                 $nomor = 1; ?>
@@ -38,7 +39,9 @@
                     <td>{{ $row->jenis }}</td>
                     <td>Rp.{{ number_format($row->jumlahdonasi, 0) }}</td>
                 </tr>
-                <?php $totalByJenis += $row->jumlahdonasi;
+                <?php 
+                $totalByJenis += $row->jumlahdonasi;
+                $totalKeseluruhan += $row->jumlahdonasi;
                 $nomor++; ?>
                 @endforeach
                 <tr class="bg-light">
@@ -46,6 +49,10 @@
                     <td><strong>Rp.{{ number_format($totalByJenis, 0) }}</strong></td>
                 </tr>
                 @endforeach
+                <tr class="bg-primary text-white">
+                    <td colspan="4" class="text-right"><strong>Total Keseluruhan Donasi</strong></td>
+                    <td><strong>Rp.{{ number_format($totalKeseluruhan, 0) }}</strong></td>
+                </tr>
             </tbody>
         </table>
     </div>

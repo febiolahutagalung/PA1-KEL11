@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('namakeluarga');
-            $table->string('sektor');
+            $table->string('sektor',['Wijk I','Wijk II','Wijk III','Wijk IV','Wijk V','Wijk VI','Wijk VII','Wijk VIII','Wijk IX','Wijk X','Wijk XI']);
             $table->string('alamat');
 
             

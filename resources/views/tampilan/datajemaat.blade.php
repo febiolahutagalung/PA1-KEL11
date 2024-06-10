@@ -1,7 +1,7 @@
 @extends('layout.user')
 
 @section('container')
- <!-- Header Start -->
+<!-- Header Start -->
 <div class="container-fluid bg-breadcrumb" style="background-image: url('{{ URL::asset('Template/img/bg1.png')}}');">
     <div class="container text-center py-5" style="max-width: 900px;">
         <h3 class="text-white display-3 mb-4">Data Jemaat</h3>
@@ -29,15 +29,34 @@
                 </tr>
             </thead>
             <tbody>
-                <?php $nomor = 1; ?>
+                <?php
+                $sektorOrder = [
+                    'Wijk I', 'Wijk II', 'Wijk III', 'Wijk IV', 'Wijk V',
+                    'Wijk VI', 'Wijk VII', 'Wijk VIII', 'Wijk IX', 'Wijk X', 'Wijk XI'
+                ];
+
+                // Convert collection to array
+                $dataArray = $data->toArray();
+
+                // Sort data by sektor
+                usort($dataArray, function($a, $b) use ($sektorOrder) {
+                    $posA = array_search($a['sektor'], $sektorOrder);
+                    $posB = array_search($b['sektor'], $sektorOrder);
+                    return $posA - $posB;
+                });
+
+                // Convert back to collection if needed
+                $data = collect($dataArray);
+
+                $nomor = 1;
+                ?>
                 @foreach ($data as $row)
                 <tr>
                     <td>{{ $nomor }}</td>
-                    <td>{{ $row->namakeluarga }}</td>
-                    <td>{{ $row->sektor }}</td>
-                    <td>{{ $row->alamat }}</td>
-                    <td> <a href="{{ url('viewdatajemaat/'.$row->id) }}" class="btn btn-primary ml-3 mb-2">View</a></td>
-                    
+                    <td>{{ $row['namakeluarga'] }}</td>
+                    <td>{{ $row['sektor'] }}</td>
+                    <td>{{ $row['alamat'] }}</td>
+                    <td><a href="{{ url('viewdatajemaat/'.$row['id']) }}" class="btn btn-primary ml-3 mb-2">View</a></td>
                 </tr>
                 <?php $nomor++; ?>
                 @endforeach

@@ -36,11 +36,25 @@
             </div>
             <div class="mb-3">
                 <label for="sektor" class="form-label">Sektor</label>
-                <input type="text" class="form-control @error('sektor') is-invalid @enderror" id="sektor" name="sektor" placeholder="Masukkan Sektor">
+                <select class="form-control @error('sektor') is-invalid @enderror" id="sektor" name="sektor">
+                    <option value="">Pilih Sektor</option>
+                    <option value="Wijk I">Wijk I</option>
+                    <option value="Wijk II">Wijk II</option>
+                    <option value="Wijk III">Wijk III</option>
+                    <option value="Wijk IV">Wijk IV</option>
+                    <option value="Wijk V">Wijk V</option>
+                    <option value="Wijk VI">Wijk VI</option>
+                    <option value="Wijk VII">Wijk VII</option>
+                    <option value="Wijk VIII">Wijk VIII</option>
+                    <option value="Wijk IX">Wijk IX</option>
+                    <option value="Wijk X">Wijk X</option>
+                    <option value="Wijk XI">Wijk XI</option>
+                </select>
                 @error('sektor')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
+            
             <div class="mb-3">
                 <label for="alamat" class="form-label">Alamat</label>
                 <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" name="alamat" placeholder="Masukkan Alamat">
