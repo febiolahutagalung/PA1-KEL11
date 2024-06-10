@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Blade;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,5 +26,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Carbon::setLocale('id');
+        Blade::directive('currency', function ($amount) {
+            return "<?php echo number_format($amount, 0, ',', '.'); ?>";
+        });
     }
 }

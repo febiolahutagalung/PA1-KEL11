@@ -6,6 +6,8 @@ use App\Models\Warta;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Symfony\Contracts\Service\Attribute\Required;
+use App\Models\Donasi;
+use Illuminate\Support\Facades\Log;
 
 class WartaController extends Controller
 {
@@ -15,9 +17,28 @@ class WartaController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function dashboard()
+    public function dashboard(Request $request)
     {
-        return view('warta.dashboard');
+        $tahun = $request->input('tahun', date('Y'));
+        $donasi = Donasi::whereYear('tanggal', $tahun)->sum('jumlahdonasi');
+
+        // Calculate the sum of donations for each month
+        $charts_donasi = [];
+        for ($month = 1; $month <= 12; $month++) {
+            $charts_donasi[] = intval(Donasi::whereYear('tanggal', $tahun)
+                ->whereMonth('tanggal', $month)
+                ->sum('jumlahdonasi'));
+        }
+
+        // Check if there are any donations for the year
+        $no_donations = array_sum($charts_donasi) == 0;
+
+        return view('warta.dashboard', [
+            'charts_donasi' => $charts_donasi,
+            'tahun' => $tahun,
+            'donasi' => $no_donations ? 0 : $donasi, // Set $donasi to 0 if there are no donations
+            'no_donations' => $no_donations, // Pass $no_donations to the view
+        ]);
     }
 
     public function index()
@@ -121,7 +142,7 @@ class WartaController extends Controller
             'keterangan'=> 'required',
             'tanggal'=> 'required',
             'photo'=> 'required',
-            
+
         ]);
 
         $file = $request->file('photo');
