@@ -17,8 +17,6 @@ use App\Http\Controllers\JadwalibadahtampilanController;
 use App\Http\Controllers\DonasitampilanController;
 use App\Http\Controllers\DonasiController;
 
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,11 +33,6 @@ Route::get('/gereja', function () {
         "title"=> "HOME"
     ]);
 });
-// Route::get('/warta', function () {
-//     return view ('tampilan.warta',[
-//         "title" => "Warta"
-//     ] );
-// });
 Route::get('/layanan', function () {
     return view ('tampilan.layanan',[
         "title"=> "Layanan"
@@ -62,11 +55,6 @@ Route::get('/viewdatajemaat/{dataJemaatId}', 'App\Http\Controllers\Datajemaattam
 Route::get('/jadwalibadah', 'App\Http\Controllers\JadwalibadahtampilanController@index');
 Route::get('/donasi', 'App\Http\Controllers\DonasitampilanController@index');
 
-
-
-
-
-
 Route::get('/datajemaat/search', 'App\Http\Controllers\DatajemaattampilanController@search')->name('datajemaat.search');
 
 Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function(){
@@ -76,7 +64,7 @@ Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function
         Route::get('/logout', 'AdminController@logout');
     });
     Route::group(['middleware' => ['admins']], function () {
-        Route::get('/dashboard', 'WartaController@dashboard' );
+        Route::get('/dashboard', 'WartaController@dashboard')->name('dashboard');
         Route::get('/warta' , 'WartaController@index' );
         Route::get('/tambahwarta' , 'WartaController@create' );
         Route::post('/tambahwarta' , 'WartaController@store' );
@@ -118,16 +106,9 @@ Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function
         Route::get('/donasi' , 'DonasiController@index' );
         Route::get('/tambahdonasi' , 'DonasiController@create' );
         Route::get('/editdonasi/{donasiId}' , 'DonasiController@edit' );
-        Route::post('/updatedonasi/{donasiId}' , 'DonasiController@update' );
+        Route::post('/updatedonasi/{donasiId}', 'DonasiController@update' );
         Route::delete('/hapusdonasi/{donasiId}' , 'DonasiController@destroy' );
         Route::post('/tambahdonasi' , 'DonasiController@store');
-
     });
     Route::match(['get','post'], 'register', 'AdminController@register');
 });
-
-
-
-
-
-
